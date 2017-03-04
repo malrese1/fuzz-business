@@ -1,3 +1,16 @@
-function sumFizzBuzzFactors(maximum){
-  // return the sum of the numbers between 0 and maximum that are divisible by 3 or 5
+// Solution: .reduce
+function sumFizzBuzzFactors(maximum, arr=genArray(maximum)){
+  return arr.reduce((acc, curr) => {
+    return !(curr % 3) || !(curr % 5)
+      ? acc + curr
+      : acc
+  }, 0)
+}
+
+// Creates array using max number
+function genArray(num, arr=[]){
+  for(let i=0; i<num; i++){
+    arr.push(i)
+  }
+  return arr
 }
