@@ -18,10 +18,16 @@ function sumFizzBuzzFactors(maximum, arr=genArray(maximum)){
   }, 0)
 }
 
-// Creates array using max number
+// Creates array using max number. Used in previous two solutions.
 function genArray(num, arr=[]){
   for(let i=0; i<num; i++){
     arr.push(i)
   }
   return arr
+}
+
+// Solution: recursion
+function sumFizzBuzzFactors(maximum, current=1, sum=0){
+  let updatedSum = !(current % 3) || !(current % 5) ? sum + current : sum
+  return current === maximum ? sum : sumFizzBuzzFactors(maximum, current + 1, updatedSum)
 }
