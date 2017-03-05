@@ -24,4 +24,5 @@ function genArray(num, arr=[]){
     arr.push(i)
   }
   return arr
+
 }
