@@ -1,11 +1,9 @@
-// Solution using 2 higher-order functions: .filter and .reduce
+// Solution: .filter + .reduce
 function sumFizzBuzzFactors(maximum){
-    let range = [...Array(maximum).keys()];
+    let range = [...Array(maximum).keys()];  // A technique for generating an array of numbers from 0 to (maximum - 1)
     return range
       .filter( num => (num % 3 === 0 || num % 5 === 0 ) )
       .reduce( (a,b) => a + b );
-
-//// Solutions Using a single higher order functions
 
 // Solution: .forEach
 function sumFizzBuzzFactors(maximum, arr=genArray(maximum)){
@@ -27,7 +25,8 @@ function sumFizzBuzzFactors(maximum, arr=genArray(maximum)){
   }, 0)
 }
 
-// Creates array using max number. Used in previous two solutions.
+// Another technique for generating an array of numbers from 0 to (maximum - 1). 
+// Used in previous two solutions.
 function genArray(num, arr=[]){
   for(let i=0; i<num; i++){
     arr.push(i)
@@ -35,16 +34,14 @@ function genArray(num, arr=[]){
   return arr
 }
 
-//// Recursion-based Solutions
-
-// straight-forward recursion
+// Solution: Recursion
 function sumFizzBuzzFactors(maximum, current = 1, sum = 0) {
   let updatedSum = !(current % 3) || !(current % 5) ? sum + current : sum
   return current === maximum ? sum : sumFizzBuzzFactors(maximum, current + 1, updatedSum)
 }
 
 
-//recursive reduce-implementation
+// Solution: Recursive Reduce
 function sumFizzBuzzFactors(maximum) {
   let range = [...new Array(maximum).keys()];
   return recursiveReduceSum(0, range);
@@ -52,17 +49,17 @@ function sumFizzBuzzFactors(maximum) {
 
 function recursiveReduceSum(acc, collection) {
   if (collection.length) {
-    //plucks off first value of collection
+    // Plucks off first value of collection
     let current = collection.shift();
 
     let multiplier = (current % 3 === 0 || current % 5 === 0) ? 1 : 0;
-    //multiply current value by 0 if not divisble by 3*5
+    // Multiply current value by 0 if not divisble by 3*5
     let addend = current * multiplier;
 
     let collSum = acc + addend;
     return recursiveReduceSum(collSum, collection);
   } else {
-    //returns accumulator/base if collection has been emptied
+    // Returns accumulator/base if collection has been emptied
     return acc;
   }
 }
