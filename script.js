@@ -7,13 +7,13 @@ function sumFizzBuzzFactors(maximum){
 }
 
 
-//recursive reduce
+//recursive reduce implement
 function sumFizzBuzzFactors(maximum) {
   let range = [...new Array(maximum).keys()]
-  return recursiveReduce(0, range);
+  return recursiveReduceSum(0, range);
 }
 
-function recursiveReduce( acc, collection) {
+function recursiveReduceSum( acc, collection) {
   if (collection.length) {
     //plucks off first value of collection
     let current = collection.shift();
@@ -23,7 +23,7 @@ function recursiveReduce( acc, collection) {
     let addend = current * multiplier;
 
     let collSum = acc + addend;
-    return recursiveReduce(collSum, collection);
+    return recursiveReduceSum(collSum, collection);
   } else {
     //returns accumulator/base if collection has been emptied
     return acc;
