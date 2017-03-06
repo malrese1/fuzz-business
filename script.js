@@ -1,6 +1,6 @@
 // Solution: .filter + .reduce
 function sumFizzBuzzFactors(maximum){
-    let range = [...Array(maximum).keys()];  // A technique for generating an array of numbers from 0 to (maximum - 1)
+    let range = [...new Array(maximum).keys()];  // A technique for generating an array of numbers from 0 to (maximum - 1)
     return range
       .filter( num => (num % 3 === 0 || num % 5 === 0 ) )
       .reduce( (a,b) => a + b );
@@ -25,7 +25,7 @@ function sumFizzBuzzFactors(maximum, arr=genArray(maximum)){
   }, 0)
 }
 
-// Another technique for generating an array of numbers from 0 to (maximum - 1). 
+// Another technique for generating an array of numbers from 0 to (maximum - 1).
 // Used in previous two solutions.
 function genArray(num, arr=[]){
   for(let i=0; i<num; i++){
