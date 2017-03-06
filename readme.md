@@ -23,5 +23,5 @@ A test suite is included with this exercise and will automatically run each time
 
 ## Bonuses
 
-- The only higher order function you're allowed to use is `.reduce`
-- Do this using [recursion](https://medium.com/@kevincennis/recursion-in-javascript-1608032c7a1f#.osuenxz9w). No loops or higher order functions allowed.
+- Solve the challenge using `.reduce` and without any other higher order functions.
+- Instead of using any higher-order functions or loops, write a solution that uses  [recursion](https://medium.com/@kevincennis/recursion-in-javascript-1608032c7a1f#.osuenxz9w).
