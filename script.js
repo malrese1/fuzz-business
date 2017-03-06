@@ -4,6 +4,7 @@ function sumFizzBuzzFactors(maximum){
     return range
       .filter( num => (num % 3 === 0 || num % 5 === 0 ) )
       .reduce( (a,b) => a + b );
+}
 
 // Solution: .forEach
 function sumFizzBuzzFactors(maximum, arr=genArray(maximum)){
